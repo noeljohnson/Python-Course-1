@@ -2,6 +2,8 @@
 
 # putting a dictionary inside a dictionary
 
+import pprint
+
 people = {}
 
 people["ford"] = {
@@ -33,5 +35,5 @@ people["Robot"] = {
   "Name" : "Marvin",
 }
 
-print(people)
+pprint.pprint(people)
 ##TYJC
