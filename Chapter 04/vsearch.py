@@ -1,5 +1,5 @@
-def commVowels(word):
-  
+def commVowels(word:str):
+
   """Displays vowels found in the word"""
 
   vowels = set("aeiou")
@@ -7,6 +7,21 @@ def commVowels(word):
   for vowel in sorted(cv):
     print(vowel)
 
+def isVowelPresent(word:str)->bool:
+  
+  """Returns true if vowel is present"""
+
+  vowels = set("aeiou")
+  cv = vowels.intersection(set(word))
+  return (bool(cv))
+
+def vowelSet(word:str)->set:
+  
+  """Returns true if vowel is present"""
+
+  vowels = set("aeiou")
+  cv = vowels.intersection(set(word))
+  return (cv)
 
 def commVowelsInp():
   
