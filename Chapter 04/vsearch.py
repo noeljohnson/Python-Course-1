@@ -23,6 +23,10 @@ def vowelSet(word:str)->set:
   cv = vowels.intersection(set(word))
   return (cv)
 
+def search4letters(phrase:str, letters:str="aeiou") ->set :
+  """ returns a set of \'letters\' found in \'phrase\'"""
+  return set(phrase).intersection(set(letters))
+
 def commVowelsInp():
   
   """Displays vowels found in the input word"""
