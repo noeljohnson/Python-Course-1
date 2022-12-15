@@ -1,5 +1,5 @@
-<!--GTG-->
-from flask import Flask, render_template
+##GTG
+from flask import Flask, render_template, request
 import vsearch as vs
 
 app = Flask(__name__)
@@ -17,9 +17,11 @@ def entry_page() -> str: #html string
     )
   )
   
-@app.route("/search4")
+@app.route("/search4", methods=["POST"])
 def do_search() ->str:
-  return (str(vs.search4letters("life, the universe and everything", "eiru")))
+  phrase = request.form["phrase"]
+  letters = request.form["letters"]
+  return (str(vs.search4letters(phrase, letters)))
 
-app.run()
-<!--TYJC-->
+app.run(debug=True)
+##TYJC
