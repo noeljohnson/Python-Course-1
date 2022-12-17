@@ -5,11 +5,8 @@ import vsearch as vs
 app = Flask(__name__)
 
 @app.route('/')
-def hello() -> str:
-  return ("Hello World from Flask")
-
 @app.route("/entry")
-def entry_page() -> str: #html string
+def entry_page() -> 'html':
   return (
     render_template(
       "entry.html",
@@ -18,10 +15,21 @@ def entry_page() -> str: #html string
   )
   
 @app.route("/search4", methods=["POST"])
-def do_search() ->str:
+def do_search() ->'html':
   phrase = request.form["phrase"]
   letters = request.form["letters"]
-  return (str(vs.search4letters(phrase, letters)))
+  resultSet = vs.search4letters(phrase, letters)
+  result = '{' + ", ".join(resultSet)+ '}'
+
+  return (
+    render_template(
+      "results.html",
+      the_title="Here are your results",
+      the_phrase=phrase,
+      the_letters=letters,
+      the_results=result,
+    )
+  )
 
 app.run(debug=True)
 ##TYJC
