@@ -1,3 +1,4 @@
-<Request 'http://localhost:5000/search4' [POST]> {e, i}
-<Request 'http://localhost:5000/search4' [POST]> {u, e, a, i}
-<Request 'http://localhost:5000/search4' [POST]> {y, x}
+127.0.0.1|Mozilla/5.0 (Windows NT 10.0; rv:107.0) Gecko/20100101 Firefox/107.0|ImmutableMultiDict([('phrase', 'hitch-hicker'), ('letters', 'aeiou')])|{i, e}
+127.0.0.1|Mozilla/5.0 (Windows NT 10.0; rv:107.0) Gecko/20100101 Firefox/107.0|ImmutableMultiDict([('phrase', 'life, the universe, and everything'), ('letters', 'aeiou')])|{i, u, e, a}
+127.0.0.1|Mozilla/5.0 (Windows NT 10.0; rv:107.0) Gecko/20100101 Firefox/107.0|ImmutableMultiDict([('phrase', 'galaxy'), ('letters', 'xyz')])|{x, y}
+127.0.0.1|Mozilla/5.0 (Windows NT 10.0; rv:107.0) Gecko/20100101 Firefox/107.0|ImmutableMultiDict([('phrase', 'noel'), ('letters', 'aeiou')])|{o, e}

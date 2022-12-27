@@ -1,12 +1,12 @@
 ##GTG
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, escape
 import vsearch as vs
 
 app = Flask(__name__)
 
 def logger(req: "flask_request", res: str) -> None:
   with open("vsearch.log", 'a') as log:
-    print(req, res, file=log)
+    print(request.remote_addr, request.user_agent, request.form, res, sep='|', file=log)
 
 @app.route('/')
 @app.route("/entry")
@@ -41,7 +41,7 @@ def read_log() -> str:
   log = ''
   with open("vsearch.log") as logStream:
     log = logStream.read()
-  return(log)
+  return(escape(log))
 
 if (__name__ == "__main__"):
   app.run(debug=True)
