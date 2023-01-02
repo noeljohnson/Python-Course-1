@@ -38,9 +38,11 @@ def do_search() ->"html":
 
 @app.route("/viewlog")
 def read_log() -> str:
-  log = ''
+  log = '['
   with open("vsearch.log") as logStream:
-    log = logStream.read()
+    for lines in logStream:
+      log += '[' + ', '.join(lines.split('|')) + "]," 
+  log = log[:-1] + ']'
   return(escape(log))
 
 if (__name__ == "__main__"):
