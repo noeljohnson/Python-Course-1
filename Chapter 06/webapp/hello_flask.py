@@ -37,13 +37,21 @@ def do_search() ->"html":
   )
 
 @app.route("/viewlog")
-def read_log() -> str:
-  log = '['
+def read_log() -> "html":
+  log = []
   with open("vsearch.log") as logStream:
-    for lines in logStream:
-      log += '[' + ', '.join(lines.split('|')) + "]," 
-  log = log[:-1] + ']'
-  return(escape(log))
+    for line in logStream:
+      log.append([])
+      for item in line.split('|'):
+        log[-1].append(escape(item))
+  return(
+    render_template(
+      "viewlog.html",
+      the_title = "View Log",
+      row_titles = ["Remote Address", "User Agent", "Form Data", "Result"],
+      data = log,
+    )
+  )
 
 if (__name__ == "__main__"):
   app.run(debug=True)
